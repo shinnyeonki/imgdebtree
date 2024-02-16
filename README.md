@@ -2,7 +2,10 @@
 ```shell
 cd <project_clone_folder>
 sudo chmod +x imgdebtree
+
 mv imgdebtree /usr/local/bin
+#없으면
+mv imgdebtree /usr/bin
 ``` 
 
 
