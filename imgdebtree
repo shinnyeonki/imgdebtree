@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Check if debtree is installed
+if ! command -v debtree &> /dev/null; then
+    echo "debtree is not installed. Please install it."
+	echo "if you want type below"
+	echo "sudo apt install debtree -y"
+    exit 1
+fi
+
+# Check if dot is installed
+if ! command -v dot &> /dev/null; then
+    echo "dot (from graphviz package) is not installed. Please install it."
+	echo "if you want type below"
+	echo "sudo apt install graphviz -y"
+    exit 1
+fi
+
+# Check if feh is installed
+if ! command -v feh &> /dev/null; then
+    echo "feh is not installed. Please install it. it is light image viewer"
+	echo "if you want type below"
+	echo "sudo apt install feh -y"
+    exit 1
+fi
+
+# Check if input argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <package-name>"
+    exit 1
+fi
+
+PACKAGE="$1"
+PNG_FILE="$PACKAGE.png"
+
+# Generate dot file using debtree, convert it to PNG, and display with feh
+debtree "$PACKAGE" | dot -Tpng | feh -
+
+
