@@ -34,6 +34,6 @@ PACKAGE="$1"
 PNG_FILE="$PACKAGE.png"
 
 # Generate dot file using debtree, convert it to PNG, and display with feh
-debtree "$PACKAGE" | dot -Tpng | feh -
+debtree "$PACKAGE" | dot -Tpng | feh - &
 
 
